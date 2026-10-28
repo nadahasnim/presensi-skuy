@@ -1,12 +1,11 @@
 import { Button } from "../ui/button";
 import { RefreshCw } from "lucide-react";
-import { FormSchema } from "../Form/form-config";
-import { useFormContext } from "react-hook-form";
-import { z } from "zod";
 
-export default function Header() {
-  const form = useFormContext<z.infer<typeof FormSchema>>();
+interface HeaderProps {
+  onReset: () => void;
+}
 
+export default function Header({ onReset }: Readonly<HeaderProps>) {
   return (
     <header className="bg-[#02275d] text-white fixed top-0 left-0 right-0 z-20">
       <div
@@ -20,7 +19,7 @@ export default function Header() {
           <span className="text-sm align-super pt-1">v1.1.2</span>
         </div>
         <Button
-          onClick={() => form.reset()}
+          onClick={onReset}
           size="icon"
           variant="outline"
           className="text-primary"

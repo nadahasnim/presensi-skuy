@@ -2,7 +2,6 @@ import { useFormContext } from "react-hook-form";
 import { FormSchema } from "./form-config";
 import { z } from "zod";
 import { LatLng } from "leaflet";
-import Container from "../Container";
 import {
   FormControl,
   FormDescription,
@@ -64,7 +63,7 @@ export default function FormPresence() {
     <form
       onSubmit={form.handleSubmit(onSubmit, (error) => console.log({ error }))}
     >
-      <Container className="flex flex-col gap-4 py-6 pt-20">
+      <div className="flex flex-col gap-4">
         {/* Dropdown select APK version */}
         <FormField
           control={form.control}
@@ -254,7 +253,7 @@ export default function FormPresence() {
         <Button disabled={isLoading} type="submit">
           CHECK {form.watch("presence_type") === "CI" ? "IN" : "OUT"}
         </Button>
-      </Container>
+      </div>
     </form>
   );
 }
