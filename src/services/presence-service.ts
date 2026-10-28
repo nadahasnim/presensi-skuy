@@ -1,11 +1,8 @@
 import { FormSchema } from "@/components/Form/form-config";
+import { API_URL } from "@/config/config";
 import { PresencePayload } from "@/types/request/presence";
 import axios, { AxiosResponse } from "axios";
 import { z } from "zod";
-
-const BASE_URL = import.meta.env.VITE_BASE_URL_API;
-const API_VERSION = import.meta.env.VITE_API_VERSION;
-const API_URL = `${BASE_URL}/api/${API_VERSION}`;
 
 const convertFileToBase64 = (file: File): Promise<string> => {
   return new Promise((resolve, reject) => {
